@@ -1,0 +1,61 @@
+/*通用设置*/
+a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    max-width:640px;
+    min-width:320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*navigator*/
+.navigator{
+    position: relative;
+    overflow-y: scroll;
+
+}
+
+#logo{
+    display: inline-block;
+}
+
+#logo img{
+    padding: 10px;
+    padding-left: 12px;
+    width: 44px;
+}
+
+#kind{
+    float: left;
+
+    position: absolute;
+    top: 35%;
+    display: inline-block;
+    word-spacing: -6px;
+    height: 30%;
+    overflow-y: scroll;
+}
+
+#selected{
+    color: red;
+}
+
+#kindUL{
+    width: 560px;
+}
+
+#kindUL li{
+    display: inline-block;
+}
+#kindUL li a{
+    margin-left: 15px;
+    font-size: 18px;
+    text-decoration:none;
+    color: #1a1a1a;
+}
+
