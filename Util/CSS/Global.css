@@ -28,6 +28,8 @@ body{
 }
 
 #kind{
+    float: left;
+
     position: absolute;
     top: 35%;
     display: inline-block;
