@@ -7,6 +7,8 @@ a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, 
 body{
     max-width:640px;
     min-width:320px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -15,6 +17,7 @@ body{
 .navigator{
     position: relative;
     overflow-y: scroll;
+
 }
 
 #logo{
