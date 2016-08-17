@@ -1,0 +1,81 @@
+
+/*top*/
+#top{
+    position: relative;
+    overflow-y: scroll;
+    margin-top: 20px;
+    height: 350px;
+}
+#topUL{
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+}
+
+#topUL li{
+    display: inline-block;
+}
+
+#topUL .topImage{
+    display: inline-block;
+    height: 100%;
+    background: rebeccapurple;
+}
+
+#topUL img{
+    width: 20px;
+    height: 20px;
+    background: coral;
+}
+
+#topUL .name{
+    display: inline-block;
+    padding-top: 15px;
+    height: 30px;
+    font-size: 20px;
+    color: black;
+    background: palegoldenrod;
+
+}
+
+#topUL label{
+    font-size: 15px;
+}
+
+
+/*list*/
+#list{
+    margin-top: 20px;
+    position: relative;
+}
+
+#list .topImage{
+    width: 80px;
+    height: 80px;
+    background: rosybrown;
+}
+
+#list img{
+    width: 15px;
+    height: 15px;
+    background: coral;
+}
+
+#list .name{
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 90px;
+
+    width: 60%;
+    height: 30px;
+    font-size: 20px;
+    color: black;
+    background: palegoldenrod;
+    line-height: 20px;
+}
+
+#list label{
+    font-size: 14px;
+}
