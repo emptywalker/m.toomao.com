@@ -31,14 +31,11 @@ body{
 }
 
 #kind{
-    float: left;
-
     position: absolute;
     top: 35%;
     display: inline-block;
     word-spacing: -6px;
     height: 30%;
-    overflow-y: scroll;
 }
 
 #selected{
@@ -47,6 +44,7 @@ body{
 
 #kindUL{
     width: 560px;
+    left:100px;
 }
 
 #kindUL li{
