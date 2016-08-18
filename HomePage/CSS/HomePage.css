@@ -1,1 +1,47 @@
 
+#warp{
+    /*position: relative;*/
+    overflow-x: scroll;
+    height: 100%;
+
+}
+
+ #scrollBoby{
+    position: relative;
+    overflow-x: scroll;
+    width: 3750px;
+    background: red;
+
+}
+
+.item{
+    /*position: absolute;*/
+    display: inline-block;
+    width: 375px;
+    height: 500px;
+    /*background: red;*/
+}
+
+#home{
+    background: rosybrown;
+}
+
+#concept{
+    background: gold;
+}
+
+#partner{
+    background: goldenrod;
+}
+
+#about{
+    background: firebrick;
+}
+
+#enter{
+    background-color: aliceblue;
+}
+
+#news{
+    background: lavenderblush;
+}
