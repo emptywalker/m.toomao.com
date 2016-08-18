@@ -60,19 +60,84 @@ window.onload = function myFund() {
         },
     });
 
-
+    //滚动动画
     var  time = null;
+    var topLetf = 0;
     function animationLoop() {
+        clearInterval(time);
         time = setInterval(function () {
-
             page ++;
             if (page > topArray.length - 1){
                 page = 0;
             }
-            var offset = -screenWidth * page + 'px';
-            topUL.style.transitionDuration = '2s';
-            topUL.style.transform = "translateX("+offset+")";
-            // topUL.style.left = offset;
+            console.log('page'+page + '     ------        ' + topUL.offsetLeft);
+            var scrollOffset = -screenWidth * page + 'px';
+            topUL.style.transitionDuration = '1s';
+            topUL.style.transform = "translateX("+scrollOffset+")";
+            // topUL.style.left = scrollOffset+'px';
         }, 5000);
     }
+
+    var startX, startY;
+    var direction;
+
+    //手势控制滚动
+    topUL.addEventListener('touchstart', function (e) {
+        e.preventDefault();//阻止纵向移动
+        topLetf = topUL.offsetLeft;
+        var touch = e.touches[0];
+        //获取起始点的位置
+        startX = touch.clientX;
+        startY = touch.clientY;
+
+    }, false);
+
+    topUL.addEventListener('touchmove', function (e) {
+        e.preventDefault();
+        clearInterval(time);
+        var touch = e.touches[0];
+        var deltaX = touch.clientX - startX;
+        direction = deltaX > 0 ? true : false;
+        let offsetScroll = topLetf + deltaX;
+        // topUL.style.transform = "translateX("+offsetScroll+"px)";
+
+        topUL.style.left = offsetScroll  + 'px';
+    }, false);
+
+    topUL.addEventListener('touchend', function (e) {
+        e.preventDefault();
+        //这个触摸点的数组是空的
+        // var touch = e.touches[0];
+
+        var currentLeft = topUL.offsetLeft;
+        if (currentLeft > 0){
+            currentLeft = 0;
+        }
+        if (currentLeft < -(topArray.length - 1)*screenWidth){
+            currentLeft = -(topArray.length - 1)*screenWidth;
+        }
+
+        let  between = currentLeft - topLetf;
+        var surplus = Math.abs(between % screenWidth);
+        let offset = 0;
+        if (surplus > screenWidth/2.0){
+            if (direction){
+                offset = currentLeft - surplus + screenWidth;
+            }else {
+                offset = currentLeft + surplus - screenWidth;
+            }
+        }else {
+            if (direction){
+                offset = currentLeft - surplus;
+            }else {
+                offset = currentLeft + surplus;
+            }
+        }
+        page = Math.abs(offset/screenWidth);
+
+        // topUL.style.transitionDuration = '1s';
+        // topUL.style.transform = "translateX("+offset+"px)";
+        topUL.style.left = offset+'px';
+        animationLoop();
+    }, false);
 }
