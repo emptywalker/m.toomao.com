@@ -5,6 +5,7 @@ a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, 
 }
 
 body{
+    /*position: relative;*/
     max-width:640px;
     min-width:320px;
     margin-left: auto;
@@ -42,18 +43,21 @@ body{
 }
 
 #selected{
-    color: red;
+    color: #B41800;
 }
 
 #kindUL{
+    position: absolute;
+    top:0;
+    left: 0;
     width: 560px;
-    left:100px;
+    /*left:100px;*/
 }
 
 #kindUL li{
     display: inline-block;
 }
-#kindUL li a{
+li a{
     margin-left: 15px;
     font-size: 18px;
     text-decoration:none;

@@ -1,1 +1,45 @@
 
+#warp{
+    position: relative;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+ #scrollBoby{
+     position: absolute;
+     /*top:0;*/
+     left: 0;
+     height: 100%;
+     background: red;
+}
+
+.item{
+    height: 100%;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#home{
+    background: rosybrown;
+}
+
+#concept{
+    background: gold;
+}
+
+#partner{
+    background: goldenrod;
+}
+
+#about{
+    background: firebrick;
+}
+
+#enter{
+    background-color: aliceblue;
+}
+
+#news{
+    background: lavenderblush;
+}
