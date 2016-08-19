@@ -1,25 +1,18 @@
 
 #warp{
-    /*position: relative;*/
+    position: relative;
     overflow-x: scroll;
-    height: 100%;
-
+    width: 100%;
 }
 
  #scrollBoby{
-    position: relative;
-    overflow-x: scroll;
-    width: 3750px;
-    background: red;
-
+     height: 100%;
+     background: red;
 }
 
 .item{
-    /*position: absolute;*/
-    display: inline-block;
-    width: 375px;
-    height: 500px;
-    /*background: red;*/
+    height: 100%;
+    float: left;
 }
 
 #home{
