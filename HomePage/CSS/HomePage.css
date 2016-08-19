@@ -6,6 +6,9 @@
 }
 
  #scrollBoby{
+     position: absolute;
+     /*top:0;*/
+     left: 0;
      height: 100%;
      background: red;
 }
@@ -13,6 +16,8 @@
 .item{
     height: 100%;
     float: left;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #home{

@@ -43,18 +43,21 @@ body{
 }
 
 #selected{
-    color: red;
+    color: #B41800;
 }
 
 #kindUL{
+    position: absolute;
+    top:0;
+    left: 0;
     width: 560px;
-    left:100px;
+    /*left:100px;*/
 }
 
 #kindUL li{
     display: inline-block;
 }
-#kindUL li a{
+li a{
     margin-left: 15px;
     font-size: 18px;
     text-decoration:none;
