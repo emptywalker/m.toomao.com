@@ -238,7 +238,7 @@ window.onload = function load() {
             // topUL.style.transitionDuration = '1s';
             // topUL.style.transform = "translateX("+offset+"px)";
             topUL.style.left = offset+'px';
-            animationLoop();
+            // animationLoop();
         }, false);
     }
 }
