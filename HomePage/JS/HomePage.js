@@ -2,7 +2,7 @@
  * Created by Administrator on 16/8/15.
  */
 
-window.onload = function () {
+window.onload = function load() {
     var screenWidth = window.screen.availWidth;
     var screenHeight = window.screen.availHeight - 67;
 
@@ -69,19 +69,33 @@ window.onload = function () {
         console.log(scrollBody.style.left,'------end--------',scrollLeft);
     }, false);
 
+    //控制导航偏移
     function navigatorOffset(index) {
         var lastA = navigatorItems[lastALabelIndex];
         lastA.id = '';
         var newA = navigatorItems[index];
         newA.id = 'selected';
         lastALabelIndex = index;
-
+        var hideA = document.querySelector('#hideA');
         if (index > 2){
-            let navigatorOffset = -80 * index;
-            document.querySelector('.hideA').click();
-            // navigatorUL.style.left = navigatorOffset + 'px';
+            hideA.href = '#offset';
+        }else {
+            hideA.href = '#header';
+        }
+        hideA.click();
 
+    }
+
+    //导航标签点击
+    for (let i = 0; i < navigatorItems.length; i ++){
+        var a = navigatorItems[i];
+        a.onclick = function () {
+            navigatorOffset(i);
+            let offset = -screenWidth*i;
+            scrollBody.style.left = offset + 'px';
         }
     }
+
+
 
 }
