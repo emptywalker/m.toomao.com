@@ -25,17 +25,17 @@ window.onload = function load() {
     //手势控制分页
     var scrollLeft;
     var startX, startY;
-    var scrollDistance;
+    var scrollDistance = 0;
 
+    var touchTime = 0;
     scrollBody.addEventListener('touchstart', function (e) {
-        e.preventDefault();
+        // e.preventDefault();
+        touchTime = Date.now();
         var touch = e.touches[0];
         scrollLeft = scrollBody.offsetLeft;
         startX= touch.clientX;
         startY= touch.clientY;
-        // console.log('start Point', startX);
-
-    }, false);
+    });
 
     scrollBody.addEventListener('touchmove', function (e) {
         e.preventDefault();
@@ -43,11 +43,11 @@ window.onload = function load() {
         scrollDistance = touch.clientX - startX;
         let newOffset = scrollLeft + scrollDistance;
         scrollBody.style.left = newOffset + 'px';
-        // console.log( scrollBody.style.left, 'move Point', scrollDistance);
-    }, false);
+        // console.log('----------move-----------', scrollDistance);
+    });
 
     scrollBody.addEventListener('touchend', function (e) {
-        e.preventDefault();
+
         if (Math.abs(scrollDistance) > screenWidth/2.0){
             if (scrollDistance > 0){
                 scrollLeft += screenWidth;
@@ -65,17 +65,15 @@ window.onload = function load() {
         //处理导航条的标签
         let index = Math.abs(scrollLeft/screenWidth);
         navigatorOffset(index);
-        // console.log(scrollBody.style.left,'------end--------',scrollLeft);
-    }, false);
+        console.log(scrollBody.style.left,'------end--------',scrollLeft);
+    });
 
     var itemsDivs = document.querySelectorAll('.item');
     //控制导航偏移
     function navigatorOffset(index) {
 
         var itemDiv = itemsDivs[0];
-        console.log('before ------ '+itemDiv.offsetHeight);
         itemDiv.offsetHeight = 'auto';
-        console.log('after ------ '+itemDiv.offsetHeight);
 
         // if(index == 5 && loadNewsFlag){
             // requestTooMaoNews();
@@ -105,6 +103,27 @@ window.onload = function load() {
         }
     }
 
+
+    //土冒合伙人
+    document.querySelector('#commit').onclick = function () {
+        let userName = document.getElementById('name').value;
+        let phone = document.getElementById('phone').value;
+        let area = document.getElementById('area').value;
+        if(!userName){
+            alert('请输入用户名');
+        }else if (!phone){
+            alert('请输入电话号码');
+        }else if (!area){
+            alert('请输入代理地区');
+        }else {
+            alert('稍等 我去 发请求');
+        }
+        console.log('commit partner info')
+    }
+
+
+
+
     //土冒资讯页的数据请求
     function requestTooMaoNews() {
 
@@ -132,14 +151,14 @@ window.onload = function load() {
                 for (var i = 0; i < topArray.length; i ++){
                     let topModel = topArray[i];
                     let timestamp = formatDate(topModel.lastUpdated);
-                    let html = "<li style='width:"+ screenWidth +"px'><img style='width:"+ screenWidth +"px' class='topImage' src='" + topModel.cover +"'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time'><label class='timeLable'>" + timestamp + "</label><img class='person'><label class='personLabel'>" + topModel.author +"</label><img class='source'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
+                    let html = "<li style='width:"+ screenWidth +"px'><img style='width:"+ screenWidth +"px' class='topImage' src='" + topModel.cover +"'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
                     topHtml += html;
                 }
 
                 for (var  i = 0; i < results.length; i ++){
                     let resultModel = results[i];
                     let timestamp = formatDate(resultModel.lastUpdated);
-                    let html = "<li><img class='topImage' src='" + resultModel.cover +"'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time'><label class='timeLable'>" + timestamp + "</label><img class='person'><label class='personLabel'>" + resultModel.author +"</label><img class='source'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
+                    let html = "<li><img class='topImage' src='" + resultModel.cover +"'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time'  src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
                     resultsHtml += html;
                 }
 
