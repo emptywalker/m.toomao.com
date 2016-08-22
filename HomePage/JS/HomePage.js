@@ -77,9 +77,10 @@ window.onload = function load() {
         itemDiv.offsetHeight = 'auto';
         console.log('after ------ '+itemDiv.offsetHeight);
 
-        if(index == 5 && loadNewsFlag){
-            requestTooMaoNews();
-        }
+        // if(index == 5 && loadNewsFlag){
+            // requestTooMaoNews();
+        // }
+        requestTooMaoNews();
         var lastA = navigatorItems[lastALabelIndex];
         lastA.id = '';
         var newA = navigatorItems[index];
@@ -151,7 +152,7 @@ window.onload = function load() {
                 // top.style.height = heightUl;
                 console.log(topUL.clientHeight , topUL.offsetHeight);
 
-                animationLoop();
+                // animationLoop();
 
             },
             fail: function (status) {
