@@ -16,8 +16,9 @@
 .item{
     height: 100%;
     float: left;
-    text-align: center;
-    vertical-align: middle;
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+    overflow: auto;
 }
 
 #home{
@@ -42,4 +43,111 @@
 
 #news{
     background: lavenderblush;
+}
+
+/*News*/
+/*top*/
+#top{
+    position: relative;
+    overflow-y: scroll;
+    margin-top: 20px;
+    height: 350px;
+    background: white;
+}
+#topUL{
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style-type: none;
+}
+
+#topUL li{
+    display: inline-block;
+    vertical-align: center;
+}
+
+#topUL .topImage{
+    display: inline-block;
+    height: 100%;
+    background: rebeccapurple;
+}
+
+
+#topUL .name{
+    display: inline-block;
+    padding-top: 15px;
+    height: 30px;
+    font-size: 18px;
+    color: black;
+}
+
+#topUL .info{
+    position: relative;
+    vertical-align: center;
+}
+
+#topUL img{
+    width: 20px;
+    height: 20px;
+    background: coral;
+    vertical-align: center;
+
+}
+#topUL label{
+    margin-left: 10px;
+    margin-right: 15px;
+    font-size: 13px;
+    color: gainsboro;
+    vertical-align: center;
+}
+/*list*/
+#list{
+    margin-top: 10px;
+    position: relative;
+    background: white;
+}
+
+#list li{
+    border-top-width: 0.2px;
+    border-top-color: gainsboro;
+    border-top-style: solid;
+    padding-top: 5px;
+}
+
+#list .topImage{
+    width: 80px;
+    height: 80px;
+    background: rosybrown;
+}
+
+#list .name{
+    display: inline-block;
+    position: absolute;
+    margin-top: 5px;
+    left: 90px;
+    width: 60%;
+    height: 30px;
+    font-size: 18px;
+    color: black;
+    line-height: 20px;
+}
+
+#list .info{
+    display: inline-block;
+    max-width: 70%;
+    margin-bottom: 5px;
+}
+
+#list img{
+    width: 15px;
+    height: 15px;
+    background: coral;
+}
+
+#list label{
+    margin-left: 10px;
+    margin-right: 15px;
+    font-size: 13px;
+    color: gainsboro;
+    vertical-align: center;
 }
