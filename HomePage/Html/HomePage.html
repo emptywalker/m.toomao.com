@@ -143,7 +143,7 @@
                 </div>
                 <div id="list">
                     <ul id="listUL">
-                        <li>
+                        <li onclick="click(this)">
                             <img class="topImage">
                             <label class="name">name</label>
                             <img class="time">
@@ -159,6 +159,10 @@
 
         </div>
     </div>
-
+    <script>
+        function click(obj) {
+            console.log('1111111111111'+obj);
+        }
+    </script>
 </body>
 </html>

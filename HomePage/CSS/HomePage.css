@@ -91,14 +91,15 @@
 }
 
 #news{
-    background: lavenderblush;
+    /*background: lavenderblush;*/
+    background: rgba(241, 241, 241, 1.0);
 }
 
 /*News*/
 /*top*/
 #top{
     position: relative;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-top: 20px;
     height: 350px;
     background: white;
@@ -118,7 +119,7 @@
 #topUL .topImage{
     display: inline-block;
     height: 100%;
-    background: rebeccapurple;
+    padding-left: 0px;
 }
 
 
@@ -136,10 +137,9 @@
 }
 
 #topUL img{
-    margin-left: 10px;
+    padding-left: 10px;
     width: 15px;
     height: 15px;
-    /*background: coral;*/
     vertical-align: center;
 
 }
