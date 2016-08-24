@@ -77,11 +77,12 @@
         </div>
     </div>
     <script>
-        document.querySelector('.hideA').click();
-//        document.body.onload = function () {
-//            //导航定位 将当前标签栏移到屏幕内
-//
-//        }
+        document.addEventListener('readystatechange', function(e) {
+            if (document.readyState === 'interactive') {
+                document.querySelector('.hideA').click();
+                console.log('I am ready');
+            }
+        });
     </script>
 
 </body>
