@@ -9,7 +9,7 @@
 </head>
 <body>
     <!--用于定位-->
-    <a class="hideA" href="#hiden"></a>
+    <a class="hideA" href="#hide"></a>
     <div style="width: 100%">
         <!--navigator-->
         <div class="navigator">
@@ -34,7 +34,7 @@
                         <a id="selected" href="../../BusinessEnter/Html/BusinessEnter.html">商家入驻</a>
                     </li>
                     <li>
-                        <a name="hiden" href="../../News/Html/News.html">资讯平台</a>
+                        <a name="hide" href="../../News/Html/News.html">资讯平台</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +47,14 @@
             <img src="../../Images/BusinessEnter/businessEnter-4.png" style="width: 100%">
         </div>
     </div>
-
+    <script>
+        document.addEventListener('readystatechange', function(e) {
+            if (document.readyState === 'interactive') {
+                document.querySelector('.hideA').click();
+                console.log('I am ready');
+            }
+        });
+    </script>
 
 </body>
 

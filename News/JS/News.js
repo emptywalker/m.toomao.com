@@ -2,11 +2,9 @@
  * Created by Administrator on 16/8/16.
  */
 
-
-
 window.onload = function myFund() {
 
-
+    console.log('I am onload');
     var path = URLBase + '/1.1/portals/toomaoinfo';
     var topUL = document.querySelector('#topUL');
     var top = document.querySelector('#top');

@@ -50,5 +50,13 @@
             <img src="../../Images/About/about-7.png" style="width: 100%">
         </div>
     </div>
+    <script>
+        document.addEventListener('readystatechange', function(e) {
+            if (document.readyState === 'interactive') {
+                document.querySelector('.hideA').click();
+                console.log('I am ready');
+            }
+        });
+    </script>
 </body>
 </html>
