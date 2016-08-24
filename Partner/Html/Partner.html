@@ -5,6 +5,7 @@
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <link rel="stylesheet" href="../../Util/CSS/Global.css">
     <link rel="stylesheet" href="../CSS/Partner.css">
+    <script src="../../Util/JS/formJSON.js"></script>
     <script type="text/javascript" src="../JS/Partner.js"></script>
     <title>合伙人</title>
 </head>
@@ -69,7 +70,27 @@
                     </li>
                 </ul>
             </div>
+            <form action="https://dev-common.toomao.com/empty" data-role="formJSON" method="PUT" style="margin: 50px;">
+                <input type="text" name="name.first:number">
+                <input type="text" name="name.second">
+                <input type="text" name="arr.">
+                <select name="select" id="">
+                    <option value="sel1">sel1</option>
+                    <option value="sel2">sel2</option>
+                </select>
+                <input type="text" name="arr.">
+                <input type="text" name="phone">
+                <input type="text" name="area">
+                <input type="submit" value="提交申请">
+            </form>
 
+            <script>
+
+                document.querySelector('form').onended = function (d) {
+                    console.log(d)
+                }
+
+            </script>
         </div>
     </div>
 </body>
