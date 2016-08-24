@@ -6,10 +6,11 @@ console.log('sadsajlkdnsalkjndjkas');
 
 
 window.onload = function muFun() {
-    document.getElementById('commite').onclick = function () {
-        let userName = document.getElementById('name').value;
-        let phone = document.getElementById('phone').value;
-        let area = document.getElementById('area').value;
+    //土冒合伙人
+    document.querySelector('#commit').onclick = function () {
+        var userName = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var area = document.getElementById('area').value;
         if(!userName){
             alert('请输入用户名');
         }else if (!phone){
@@ -19,8 +20,8 @@ window.onload = function muFun() {
         }else {
             alert('稍等 我去 发请求');
         }
+        console.log('commit partner info')
     }
-
 }
 
 

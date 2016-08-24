@@ -6,8 +6,7 @@
 
 window.onload = function myFund() {
 
-    //导航定位 将当前标签栏移到屏幕内
-    document.querySelector('.hideA').click();
+
 
 
     var path = URLBase + '/1.1/portals/toomaoinfo';

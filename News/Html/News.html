@@ -12,7 +12,7 @@
 </head>
 <body>
     <!--用于定位-->
-    <a class="hideA" href="#selected"></a>
+    <a class="hideA" href="#hide"></a>
     <div style="width: 100%">
         <!--navigator-->
         <div class="navigator">
@@ -22,7 +22,7 @@
             <div id="kind">
                 <ul id="kindUL">
                     <li>
-                        <a href="../../HomePage/Html/HomePage.html">首页</a>
+                        <a href="../../HomePage/Html/FirstPage.html">首页</a>
                     </li>
                     <li>
                         <a href="../../TMConcept/Html/TMConcept.html">土冒理念</a>
@@ -37,7 +37,7 @@
                         <a href="../../BusinessEnter/Html/BusinessEnter.html">商家入驻</a>
                     </li>
                     <li>
-                        <a name="selected" href="../../News/Html/News.html"  style="color: #B41800">资讯平台</a>
+                        <a name="hide" href="../../News/Html/News.html" id="selected">资讯平台</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
 
         <!--content-->
         <div id="content">
-            <img src="../Images/newsHeader.png" style="width: 100%">
+            <img src="../../Images/News/news-1.png" style="width: 100%">
             <div id="top">
                 <ul id="topUL">
                     <li>
@@ -76,7 +76,12 @@
             </div>
         </div>
     </div>
-
+    <script>
+        document.body.onload = function () {
+            //导航定位 将当前标签栏移到屏幕内
+            document.querySelector('.hideA').click();
+        }
+    </script>
 
 </body>
 

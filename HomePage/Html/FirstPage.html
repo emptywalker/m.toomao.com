@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../Util/CSS/Global.css">
+    <link rel="stylesheet" href="../CSS/FirstPage.css">
+
+    <script src="../../Util/JS/NetWorkEngine.js"></script>
+    <script src="../../Util/JS/TimeFormatter.js"></script>
+    <script src="../JS/FirstPage.js"></script>
+    <title>首页</title>
+</head>
+<body>
+    <!--用于定位-->
+    <a id="hideA" href="#offset"></a>
+    <!--navigator-->
+    <div class="navigator">
+        <div id="logo">
+            <img src="../../Images/GlobalImages/logo.png">
+        </div>
+        <div id="kind">
+            <ul id="kindUL">
+                <li>
+                    <a name="header" id="selected" href="../../HomePage/Html/FirstPage.html">首页</a>
+                </li>
+                <li>
+                    <a href="../../TMConcept/Html/TMConcept.html">土冒理念</a>
+                </li>
+                <li>
+                    <a href="../../Partner/Html/Partner.html">成为合伙人</a>
+                </li>
+                <li>
+                    <a href="../../About/Html/About.html">公司简介</a>
+                </li>
+                <li>
+                    <a href="../../BusinessEnter/Html/BusinessEnter.html">商家入驻</a>
+                </li>
+                <li>
+                    <a name="offset" href="../../News/Html/News.html">资讯平台</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--content-->
+    <div id="content">
+        <img src="../../Images/Home/home-1.png" style="width: 100%">
+        <img src="../../Images/Home/home-2.png" style="width: 100%">
+        <img src="../../Images/Home/home-3.png" style="width: 100%">
+        <img src="../../Images/Home/home-4.png" style="width: 100%">
+    </div>
+
+    <script>
+        document.body.onload = function () {
+            var screenWidth = window.screen.availWidth;
+            var kindWidth = screenWidth - 70;
+            document.querySelector('#kind').style.width = kindWidth + 'px';
+        }
+    </script>
+</body>
+</html>
