@@ -5,23 +5,20 @@ a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, 
 }
 
 body{
-    /*position: relative;*/
+    position: relative;
     max-width:640px;
     min-width:320px;
     margin-left: auto;
     margin-right: auto;
 }
 
-
-
 /*navigator*/
 .navigator{
-    position: relative;
-    overflow-y: scroll;
     background: white;
     border-bottom-width: 0.2px;
     border-bottom-color: gainsboro;
     border-bottom-style: solid;
+    height: 64px;
 }
 
 #logo{
@@ -29,17 +26,20 @@ body{
 }
 
 #logo img{
+    /*----*/
     padding: 10px;
     padding-left: 12px;
     width: 44px;
 }
 
 #kind{
-    position: absolute;
-    top: 35%;
+    position: relative;
+    overflow-x: scroll;
     display: inline-block;
     word-spacing: -6px;
-    height: 30%;
+    height: 64px;
+    /*background: olive;*/
+    width: 80%;
 }
 
 #selected{
@@ -50,14 +50,17 @@ body{
     position: absolute;
     top:0;
     left: 0;
-    width: 560px;
-    /*left:100px;*/
+    width: 520px;
 }
 
 #kindUL li{
     display: inline-block;
+    height: 100%;
+    line-height: 64px;
 }
+
 li a{
+    display: inline-block;
     margin-left: 15px;
     font-size: 18px;
     text-decoration:none;
