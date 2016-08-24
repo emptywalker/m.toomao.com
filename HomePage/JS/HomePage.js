@@ -27,10 +27,9 @@ window.onload = function load() {
     var startX, startY;
     var scrollDistance = 0;
 
-    var touchTime = 0;
     scrollBody.addEventListener('touchstart', function (e) {
         // e.preventDefault();
-        touchTime = Date.now();
+        scrollDistance = 0;
         var touch = e.touches[0];
         scrollLeft = scrollBody.offsetLeft;
         startX= touch.clientX;
@@ -41,13 +40,13 @@ window.onload = function load() {
         e.preventDefault();
         var touch = e.touches[0];
         scrollDistance = touch.clientX - startX;
-        let newOffset = scrollLeft + scrollDistance;
+        var newOffset = scrollLeft + scrollDistance;
         scrollBody.style.left = newOffset + 'px';
-        // console.log('----------move-----------', scrollDistance);
     });
 
     scrollBody.addEventListener('touchend', function (e) {
-
+        // e.preventDefault();
+        if (Math.abs(scrollDistance) < 10) return;
         if (Math.abs(scrollDistance) > screenWidth/2.0){
             if (scrollDistance > 0){
                 scrollLeft += screenWidth;
@@ -63,7 +62,7 @@ window.onload = function load() {
         }
         scrollBody.style.left = scrollLeft + 'px';
         //处理导航条的标签
-        let index = Math.abs(scrollLeft/screenWidth);
+        var index = Math.abs(scrollLeft/screenWidth);
         navigatorOffset(index);
         console.log(scrollBody.style.left,'------end--------',scrollLeft);
     });
@@ -75,10 +74,9 @@ window.onload = function load() {
         var itemDiv = itemsDivs[0];
         itemDiv.offsetHeight = 'auto';
 
-        // if(index == 5 && loadNewsFlag){
-            // requestTooMaoNews();
-        // }
-        requestTooMaoNews();
+        if(index == 5){//&& loadNewsFlag
+            requestTooMaoNews();
+        }
         var lastA = navigatorItems[lastALabelIndex];
         lastA.id = '';
         var newA = navigatorItems[index];
@@ -94,11 +92,11 @@ window.onload = function load() {
     }
 
     //导航标签点击
-    for (let i = 0; i < navigatorItems.length; i ++){
+    for (var i = 0; i < navigatorItems.length; i ++){
         var a = navigatorItems[i];
         a.onclick = function () {
             navigatorOffset(i);
-            let offset = -screenWidth*i;
+            var offset = -screenWidth*i;
             scrollBody.style.left = offset + 'px';
         }
     }
@@ -106,9 +104,9 @@ window.onload = function load() {
 
     //土冒合伙人
     document.querySelector('#commit').onclick = function () {
-        let userName = document.getElementById('name').value;
-        let phone = document.getElementById('phone').value;
-        let area = document.getElementById('area').value;
+        var userName = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var area = document.getElementById('area').value;
         if(!userName){
             alert('请输入用户名');
         }else if (!phone){
@@ -135,9 +133,9 @@ window.onload = function load() {
         var listUL = document.querySelector('#listUL');
 
         var screenWidth = window.screen.availWidth;
-        // document.body.clientWidth;
         var page = 0;
         var topArray = [];
+        var results = [];
         //请求数据
         ajax({
             url: path,
@@ -145,20 +143,20 @@ window.onload = function load() {
                 // console.log(responseText);
                 var newsModel = JSON.parse(responseText);
                 topArray = newsModel['top'];
-                var results = newsModel['results'];
+                results = newsModel['results'];
                 var topHtml = '';
                 var resultsHtml = '';
                 for (var i = 0; i < topArray.length; i ++){
-                    let topModel = topArray[i];
-                    let timestamp = formatDate(topModel.lastUpdated);
-                    let html = "<li style='width:"+ screenWidth +"px'><img style='width:"+ screenWidth +"px' class='topImage' src='" + topModel.cover +"'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
+                    var topModel = topArray[i];
+                    var timestamp = formatDate(topModel.lastUpdated);
+                    var html = "<li style='width:"+ screenWidth +"px'><img style='width:"+ screenWidth +"px' class='topImage' src='" + topModel.cover +"'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
                     topHtml += html;
                 }
 
                 for (var  i = 0; i < results.length; i ++){
-                    let resultModel = results[i];
-                    let timestamp = formatDate(resultModel.lastUpdated);
-                    let html = "<li><img class='topImage' src='" + resultModel.cover +"'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time'  src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
+                    var resultModel = results[i];
+                    var timestamp = formatDate(resultModel.lastUpdated);
+                    var html = "<li><img class='topImage' src='" + resultModel.cover +"'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time'  src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
                     resultsHtml += html;
                 }
 
@@ -166,12 +164,10 @@ window.onload = function load() {
                 topUL.style.width = topArray.length * screenWidth + 'px';
 
                 listUL.innerHTML = resultsHtml;
-
-                var heightUl = topUL.clientHeight;
-                // top.style.height = heightUl;
-                console.log(topUL.clientHeight , topUL.offsetHeight);
-
-                // animationLoop();
+                //开启定时器动画
+                animationLoop();
+                //添加资讯列表的点击事件
+                addListClickEvent();
 
             },
             fail: function (status) {
@@ -189,20 +185,19 @@ window.onload = function load() {
                 if (page > topArray.length - 1){
                     page = 0;
                 }
-                console.log('page'+page + '     ------        ' + topUL.offsetLeft);
                 var scrollOffset = -screenWidth * page + 'px';
                 topUL.style.transitionDuration = '1s';
                 topUL.style.transform = "translateX("+scrollOffset+")";
-                // topUL.style.left = scrollOffset+'px';
+                console.log('page'+page + '     ------        ' + topUL.offsetLeft,  scrollOffset);
+
             }, 5000);
         }
 
         var startX, startY;
         var direction;
-
         //手势控制滚动
         topUL.addEventListener('touchstart', function (e) {
-            e.preventDefault();//阻止纵向移动
+            // e.preventDefault();//阻止纵向移动
             topLetf = topUL.offsetLeft;
             var touch = e.touches[0];
             //获取起始点的位置
@@ -212,22 +207,18 @@ window.onload = function load() {
         }, false);
 
         topUL.addEventListener('touchmove', function (e) {
-            e.preventDefault();
+            // e.preventDefault();
             clearInterval(time);
             var touch = e.touches[0];
             var deltaX = touch.clientX - startX;
             direction = deltaX > 0 ? true : false;
-            let offsetScroll = topLetf + deltaX;
-            // topUL.style.transform = "translateX("+offsetScroll+"px)";
-
+            var offsetScroll = topLetf + deltaX;
             topUL.style.left = offsetScroll  + 'px';
+
         }, false);
 
         topUL.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            //这个触摸点的数组是空的
-            // var touch = e.touches[0];
-
+            // e.preventDefault();
             var currentLeft = topUL.offsetLeft;
             if (currentLeft > 0){
                 currentLeft = 0;
@@ -236,9 +227,9 @@ window.onload = function load() {
                 currentLeft = -(topArray.length - 1)*screenWidth;
             }
 
-            let  between = currentLeft - topLetf;
+            var  between = currentLeft - topLetf;
             var surplus = Math.abs(between % screenWidth);
-            let offset = 0;
+            var offset = 0;
             if (surplus > screenWidth/2.0){
                 if (direction){
                     offset = currentLeft - surplus + screenWidth;
@@ -253,11 +244,31 @@ window.onload = function load() {
                 }
             }
             page = Math.abs(offset/screenWidth);
-
-            // topUL.style.transitionDuration = '1s';
-            // topUL.style.transform = "translateX("+offset+"px)";
             topUL.style.left = offset+'px';
             // animationLoop();
         }, false);
+
+        //给资讯添加点击事件
+        function addListClickEvent() {
+            var topLi = document.querySelectorAll('#topUL li');
+            var listLi = document.querySelectorAll('#listUL li');
+            for (var i = 0; i < topLi.length; i ++){
+                var li = topLi[i];
+                li.id = i;
+                li.onclick = function (e) {
+                    var model = topArray[this.id];
+                    console.log(model + 'li ------ click',i,e.target, this.id);
+                }
+            }
+
+            for (var i = 0; i < listLi.length; i ++){
+                var li = listLi[i];
+                li.id = i;
+                li.onclick = function () {
+                    var model = results[this.id];
+                    console.log(model+'li ------ click',i);
+                }
+            }
+        }
     }
 }
