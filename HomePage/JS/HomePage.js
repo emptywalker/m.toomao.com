@@ -40,7 +40,7 @@ window.onload = function load() {
         e.preventDefault();
         var touch = e.touches[0];
         scrollDistance = touch.clientX - startX;
-        let newOffset = scrollLeft + scrollDistance;
+        var newOffset = scrollLeft + scrollDistance;
         scrollBody.style.left = newOffset + 'px';
     });
 
@@ -62,7 +62,7 @@ window.onload = function load() {
         }
         scrollBody.style.left = scrollLeft + 'px';
         //处理导航条的标签
-        let index = Math.abs(scrollLeft/screenWidth);
+        var index = Math.abs(scrollLeft/screenWidth);
         navigatorOffset(index);
         console.log(scrollBody.style.left,'------end--------',scrollLeft);
     });
@@ -92,11 +92,11 @@ window.onload = function load() {
     }
 
     //导航标签点击
-    for (let i = 0; i < navigatorItems.length; i ++){
+    for (var i = 0; i < navigatorItems.length; i ++){
         var a = navigatorItems[i];
         a.onclick = function () {
             navigatorOffset(i);
-            let offset = -screenWidth*i;
+            var offset = -screenWidth*i;
             scrollBody.style.left = offset + 'px';
         }
     }
@@ -104,9 +104,9 @@ window.onload = function load() {
 
     //土冒合伙人
     document.querySelector('#commit').onclick = function () {
-        let userName = document.getElementById('name').value;
-        let phone = document.getElementById('phone').value;
-        let area = document.getElementById('area').value;
+        var userName = document.getElementById('name').value;
+        var phone = document.getElementById('phone').value;
+        var area = document.getElementById('area').value;
         if(!userName){
             alert('请输入用户名');
         }else if (!phone){
@@ -147,16 +147,16 @@ window.onload = function load() {
                 var topHtml = '';
                 var resultsHtml = '';
                 for (var i = 0; i < topArray.length; i ++){
-                    let topModel = topArray[i];
-                    let timestamp = formatDate(topModel.lastUpdated);
-                    let html = "<li style='width:"+ screenWidth +"px'><img style='width:"+ screenWidth +"px' class='topImage' src='" + topModel.cover +"'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
+                    var topModel = topArray[i];
+                    var timestamp = formatDate(topModel.lastUpdated);
+                    var html = "<li style='width:"+ screenWidth +"px'><img style='width:"+ screenWidth +"px' class='topImage' src='" + topModel.cover +"'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
                     topHtml += html;
                 }
 
                 for (var  i = 0; i < results.length; i ++){
-                    let resultModel = results[i];
-                    let timestamp = formatDate(resultModel.lastUpdated);
-                    let html = "<li><img class='topImage' src='" + resultModel.cover +"'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time'  src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
+                    var resultModel = results[i];
+                    var timestamp = formatDate(resultModel.lastUpdated);
+                    var html = "<li><img class='topImage' src='" + resultModel.cover +"'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time'  src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
                     resultsHtml += html;
                 }
 
@@ -212,7 +212,7 @@ window.onload = function load() {
             var touch = e.touches[0];
             var deltaX = touch.clientX - startX;
             direction = deltaX > 0 ? true : false;
-            let offsetScroll = topLetf + deltaX;
+            var offsetScroll = topLetf + deltaX;
             topUL.style.left = offsetScroll  + 'px';
 
         }, false);
@@ -227,9 +227,9 @@ window.onload = function load() {
                 currentLeft = -(topArray.length - 1)*screenWidth;
             }
 
-            let  between = currentLeft - topLetf;
+            var  between = currentLeft - topLetf;
             var surplus = Math.abs(between % screenWidth);
-            let offset = 0;
+            var offset = 0;
             if (surplus > screenWidth/2.0){
                 if (direction){
                     offset = currentLeft - surplus + screenWidth;
@@ -256,7 +256,7 @@ window.onload = function load() {
                 var li = topLi[i];
                 li.id = i;
                 li.onclick = function (e) {
-                    let model = topArray[this.id];
+                    var model = topArray[this.id];
                     console.log(model + 'li ------ click',i,e.target, this.id);
                 }
             }
@@ -265,7 +265,7 @@ window.onload = function load() {
                 var li = listLi[i];
                 li.id = i;
                 li.onclick = function () {
-                    let model = results[this.id];
+                    var model = results[this.id];
                     console.log(model+'li ------ click',i);
                 }
             }

@@ -4,9 +4,9 @@
 
 function formatDate(timestamp) {
     var date=new Date(timestamp);
-    let year = date.getFullYear();
-    let  month = date.getMonth();
-    let day = date.getDay();
+    var year = date.getFullYear();
+    var  month = date.getMonth();
+    var day = date.getDay();
 
     return year + '-' + month + '-' + day;
 }
