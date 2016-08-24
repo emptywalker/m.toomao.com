@@ -7,8 +7,6 @@
 window.onload = function myFund() {
 
 
-
-
     var path = URLBase + '/1.1/portals/toomaoinfo';
     var topUL = document.querySelector('#topUL');
     var top = document.querySelector('#top');
