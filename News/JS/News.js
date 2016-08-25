@@ -35,15 +35,34 @@ window.onload = function myFund() {
             for (var i = 0; i < topArray.length; i ++){
                 var topModel = topArray[i];
                 var timestamp = formatDate(topModel.lastUpdated);
-                console.log(topModel.author, topModel.from)
-                var html = "<li style='width:"+ screenWidth +"px'><img class='topImage' style='width:"+ screenWidth +"px; background-image:url(" + topModel.cover +");  background-size:cover; background-position: center center;'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
+                //如果作者或者来源  有就显示  没有就不显示
+                var author = '';
+                var from = '';
+
+                if(topModel.author.replace(/(^\s*)|(\s*$)/g, "").length != 0){
+                    author = "<img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label>";
+                }
+                if (topModel.from.replace(/(^\s*)|(\s*$)/g, "").length != 0){
+                    from = "<img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label>";
+                }
+                var html = "<li style='width:"+ screenWidth +"px'><img class='topImage' style='width:"+ screenWidth +"px; background-image:url(" + topModel.cover +");  background-size:cover; background-position: center center;'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label>"+author+from+"</div></li>";
                 topHtml += html;
             }
 
             for (var  i = 0; i < results.length; i ++){
                 var resultModel = results[i];
                 var timestamp = formatDate(resultModel.lastUpdated);
-                var html = "<li><img class='topImage' style='background-image:url(" + resultModel.cover +");  background-size:cover; background-position: center center;'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label></div></li>";
+                //如果作者或者来源  有就显示  没有就不显示
+                var author = '';
+                var from = '';
+                if(resultModel.author.replace(/(^\s*)|(\s*$)/g, "").length != 0){
+                    author = "<img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + resultModel.author +"</label>";
+                }
+                if (resultModel.from.replace(/(^\s*)|(\s*$)/g, "").length != 0){
+                    from = "<img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label>";
+                }
+
+                var html = "<li><img class='topImage' style='background-image:url(" + resultModel.cover +");  background-size:cover; background-position: center center;'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label>"+author+from+"</div></li>";
                 resultsHtml += html;
             }
 
@@ -75,12 +94,13 @@ window.onload = function myFund() {
             if (page > topArray.length - 1){
                 page = 0;
             }
-            console.log('page'+page + '     ------        ' + topUL.offsetLeft);
             var scrollOffset = -screenWidth * page + 'px';
             topUL.style.transitionDuration = '1s';
             topUL.style.transform = "translateX("+scrollOffset+")";
             // topUL.style.left = scrollOffset+'px';
-        }, 5000);
+            console.log(scrollOffset +'----page----'+page + '     ------        ' + topUL.offsetLeft);
+
+        }, 3000);
     }
 
     // var startX, startY;
@@ -88,11 +108,12 @@ window.onload = function myFund() {
     // //手势控制滚动
     topUL.addEventListener('touchstart', function (e) {
     //     e.preventDefault();//阻止纵向移动
-    //     topLetf = topUL.offsetLeft;
+        topLetf = topUL.offsetLeft;
     //     var touch = e.touches[0];
     //     //获取起始点的位置
     //     startX = touch.clientX;
     //     startY = touch.clientY;
+        console.log('---------stsar----------------')
     //
     }, false);
     //
@@ -106,6 +127,8 @@ window.onload = function myFund() {
     //     // topUL.style.transform = "translateX("+offsetScroll+"px)";
     //
     //     topUL.style.left = offsetScroll  + 'px';
+        topUL.style.left = topLetf+'px';
+        console.log(topLetf+'---------moving----------------')
     }, false);
     //
     topUL.addEventListener('touchend', function (e) {
@@ -143,6 +166,8 @@ window.onload = function myFund() {
     //     // topUL.style.transform = "translateX("+offset+"px)";
     //     topUL.style.left = offset+'px';
     //     animationLoop();
+        topUL.style.left = topLetf+'px';
+        console.log(topUL.offsetLeft+'---------end----------------')
     }, false);
 
     //给资讯添加点击事件
