@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
     <link rel="stylesheet" href="../../Util/CSS/Global.css">
+    <link rel="stylesheet" href="../../Util/CSS/formValidator.css">
     <link rel="stylesheet" href="../CSS/Partner.css">
-    <script src="../../Util/JS/formJSON.js"></script>
-    <script src="../../Util/JS/lazyload.js"></script>
+    <link rel="stylesheet" href="//common.toomao.com/css?p=toast">
+
     <script type="text/javascript" src="../JS/Partner.js"></script>
+
     <title>合伙人</title>
 </head>
 <body>
@@ -74,12 +77,12 @@
                 <!--</ul>-->
 
 
-                <form action="https://dev-common.toomao.com/empty" data-role="formJSON" method="PUT" style="margin: 50px;">
-                    姓名<input type="text" name="name" placeholder="请输入姓名">
+                <form action="https://dev-common.toomao.com/empty" data-role="formJSON" method="PUT" style="margin: 50px;" novalidate>
+                    姓名<input type="text" name="name" placeholder="请输入姓名" data-role="formValidator" required>
                     <br>
-                    手机<input type="text" name="phone" placeholder="请输入手机号">
+                    手机<input type="text" name="phone" placeholder="请输入手机号" data-role="formValidator" minlength="11" required>
                     <br>
-                    代理地区<input type="text" name="area" placeholder="请输入代理地区">
+                    代理地区<input type="text" name="area" placeholder="请输入代理地区" data-role="formValidator" required>
                     <br>
                     <input type="submit" value="提交申请" class="submit">
                 </form>
@@ -95,8 +98,53 @@
             </script>
         </div>
     </div>
+    <style>
+
+        .formValidator-invalid {
+            border: solid 5px #f00;
+        }
+
+    </style>
+    <script src='//common.toomao.com/js?p=formJSON,formValidator,lazyload,toast'></script>
     <script>
+//        document.addEventListener('invalid', function(e) {
+//            console.log(e);
+//            var input = e.target;
+//            var  name = input.name;
+//            var toastMsg = e._invalidationMessage;
+//            if (name == 'name'){
+//                toastMsg = '姓名不能为空';
+//            }else if (name == 'area'){
+//                toastMsg = '代理地区不能为空';
+//            }
+//            toast(toastMsg);
+//
+//        });
+        document.querySelector('form').addEventListener('submit', function (e) {
+            var inputs = document.querySelectorAll('[data-role=formValidator]');
+            for (var i = 0; i < inputs.length; i ++){
+                var input = inputs[i];
+
+                if (input.value.length == 0){
+                    var toastMsg = '姓名不能为空';
+                    if (i == 1){
+                        toastMsg = '号码不能为空';
+                    }else if (i == 2){
+                        toastMsg = '代理地区不能为空';
+                    }
+                    toast(toastMsg);
+                    return;
+                }
+                if (i == 1 && input.value.length != 11){
+                    toast('号码错误');
+                    return;
+                }
+
+            }
+        });
+
         document.body.onload = function () {
+            //调整导航条位置
             var screenWidth = window.screen.availWidth;
             var kindWidth = screenWidth - 70;
             document.querySelector('#kind').style.width = kindWidth + 'px';
