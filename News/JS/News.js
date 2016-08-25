@@ -5,6 +5,11 @@
 
 document.addEventListener('readystatechange', function(e) {
     if (document.readyState === 'interactive') {
+
+        //处理导航条
+        var screenWidth = window.screen.availWidth;
+        var kindWidth = screenWidth - 70;
+        document.querySelector('#kind').style.width = kindWidth + 'px';
         //调整导航条位置
         document.querySelector('.hideA').click();
     }

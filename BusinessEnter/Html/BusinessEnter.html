@@ -55,6 +55,11 @@
                 console.log('I am ready');
             }
         });
+        document.body.onload = function () {
+            var screenWidth = window.screen.availWidth;
+            var kindWidth = screenWidth - 70;
+            document.querySelector('#kind').style.width = kindWidth + 'px';
+        }
     </script>
 
 </body>

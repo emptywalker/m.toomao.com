@@ -89,12 +89,22 @@
 
             <script>
 
-                document.querySelector('form').onended = function (d) {
-                    console.log(d)
-                }
+
+
 
             </script>
         </div>
     </div>
+    <script>
+        document.body.onload = function () {
+            var screenWidth = window.screen.availWidth;
+            var kindWidth = screenWidth - 70;
+            document.querySelector('#kind').style.width = kindWidth + 'px';
+
+            document.querySelector('form').onended = function (d) {
+                console.log(d)
+            }
+        }
+    </script>
 </body>
 </html>
