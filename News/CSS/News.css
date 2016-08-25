@@ -2,8 +2,6 @@ body{
     background: rgba(241, 241, 241, 1.0);
 }
 
-
-
 /*top*/
 #top{
     position: relative;
@@ -28,7 +26,7 @@ body{
 #topUL .topImage{
     display: inline-block;
     height: 270px;
-    background: rebeccapurple;
+    /*background: rebeccapurple;*/
     margin-left: 0px;
 }
 
@@ -47,8 +45,8 @@ body{
 }
 
 #topUL img{
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     vertical-align: center;
     margin-left: 12px;
 }
@@ -78,7 +76,7 @@ body{
 #list .topImage{
     width: 80px;
     height: 80px;
-    background: rosybrown;
+    /*background: rosybrown;*/
     margin-left: 10px;
 }
 
@@ -101,8 +99,8 @@ body{
 }
 
 #list img{
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     margin-left: 5px;
     /*background: coral;*/
 }

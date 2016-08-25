@@ -19,7 +19,7 @@ form input{
     display: inline-block;
     margin-top: 25px;
     margin-left: 15px;
-    width: 65%;
+    width: 62%;
     height: 23px;
     font-size: 18px;
     border-bottom: 1px solid black;
@@ -31,6 +31,7 @@ form input{
 }
 
 form .submit{
+    -webkit-appearance: none;
     padding: 2px 10px;
     height: 30px;
     background: darkred;
