@@ -53,37 +53,39 @@
             <img class="lazy" data-src="../../Images/Partner/partner-8.png" style="width: 100%">
             <div id="inputDiv">
                 <img class="lazy" data-src="../../Images/Partner/partner-9.png" style="width: 100%">
-                <ul id="inputUL">
-                    <li>
-                        <label>姓名</label>
-                        <input placeholder="请输入姓名" id="name">
-                    </li>
-                    <li>
-                        <label>手机</label>
-                        <input placeholder="请输入手机" id="phone">
-                    </li>
-                    <li>
-                        <label>代理地区</label>
-                        <input placeholder="请输入代理地区" id="area">
-                    </li>
-                    <li>
-                        <button id="commit">提交申请</button>
-                    </li>
-                </ul>
+
+
+                <!--<ul id="inputUL">-->
+                    <!--<li>-->
+                        <!--<label>姓名</label>-->
+                        <!--<input placeholder="请输入姓名" id="name">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label>手机</label>-->
+                        <!--<input placeholder="请输入手机" id="phone">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label>代理地区</label>-->
+                        <!--<input placeholder="请输入代理地区" id="area">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<button id="commit">提交申请</button>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+
+                <form action="https://dev-common.toomao.com/empty" data-role="formJSON" method="PUT" style="margin: 50px;">
+                    姓名<input type="text" name="name" placeholder="请输入姓名">
+                    <br>
+                    手机<input type="text" name="phone" placeholder="请输入手机号">
+                    <br>
+                    代理地区<input type="text" name="area" placeholder="请输入代理地区">
+                    <br>
+                    <input type="submit" value="提交申请" class="submit">
+                </form>
+
             </div>
-            <form action="https://dev-common.toomao.com/empty" data-role="formJSON" method="PUT" style="margin: 50px;">
-                <input type="text" name="name.first:number">
-                <input type="text" name="name.second">
-                <input type="text" name="arr.">
-                <select name="select" id="">
-                    <option value="sel1">sel1</option>
-                    <option value="sel2">sel2</option>
-                </select>
-                <input type="text" name="arr.">
-                <input type="text" name="phone">
-                <input type="text" name="area">
-                <input type="submit" value="提交申请">
-            </form>
+
 
             <script>
 
