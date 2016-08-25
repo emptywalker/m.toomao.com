@@ -21,6 +21,7 @@ window.onload = function myFund() {
 
     var page = 0;
     var topArray = [];
+    var results = [];
         //请求数据
     ajax({
         url: path,
@@ -28,7 +29,7 @@ window.onload = function myFund() {
             // console.log(responseText);
             var newsModel = JSON.parse(responseText);
             topArray = newsModel['top'];
-            var results = newsModel['results'];
+            results = newsModel['results'];
             var topHtml = '';
             var resultsHtml = '';
             for (var i = 0; i < topArray.length; i ++){
@@ -56,6 +57,7 @@ window.onload = function myFund() {
             console.log(topUL.clientHeight , topUL.offsetHeight);
 
             animationLoop();
+            addListClickEvent();
 
         },
         fail: function (status) {
@@ -142,4 +144,29 @@ window.onload = function myFund() {
     //     topUL.style.left = offset+'px';
     //     animationLoop();
     }, false);
+
+    //给资讯添加点击事件
+    function addListClickEvent() {
+        var topLi = document.querySelectorAll('#topUL li');
+        var listLi = document.querySelectorAll('#listUL li');
+        for (var i = 0; i < topLi.length; i ++){
+            var li = topLi[i];
+            li.id = i;
+            li.onclick = function (e) {
+                var model = topArray[this.id];
+                var id = model._id;
+                window.location.href = '../Html/NewsDetail.html?id='+id;
+            }
+        }
+
+        for (var i = 0; i < listLi.length; i ++){
+            var li = listLi[i];
+            li.id = i;
+            li.onclick = function () {
+                var model = results[this.id];
+                var id = model._id;
+                window.location.href = '../Html/NewsDetail.html?id='+id;
+            }
+        }
+    }
 }

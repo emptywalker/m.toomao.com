@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../Util/CSS/Global.css">
+    <link rel="stylesheet" href="../CSS/NewsDetail.css">
+    <script src="../../Util/JS/NetWorkEngine.js"></script>
+    <script src="../../Util/JS/TimeFormatter.js"></script>
+    <script src="../../Util/JS/lazyload.js"></script>
+    <script src="../JS/NewsDetail.js"></script>
     <title>资讯详情</title>
 </head>
 <body>
@@ -30,10 +37,27 @@
                     <a href="../../BusinessEnter/Html/BusinessEnter.html">商家入驻</a>
                 </li>
                 <li>
-                    <a name="hide" href="../../News/Html/News.html" id="selected">资讯平台</a>
+                    <a name="hide" href="../../News/Html/NewsDetail.html" id="selected">资讯平台</a>
                 </li>
             </ul>
         </div>
+    </div>
+
+    <div id="middle">
+        <div id="header">
+            <img style="width: 100%;">
+            <label class="name"></label>
+            <div class="info"></div>
+            <div>
+                <div id="lead">
+                    <label class="title">导语:</label>
+                    <label class="content"></label>
+                </div>
+            </div>
+
+        </div>
+        <div id="content"></div>
+
     </div>
 
 
