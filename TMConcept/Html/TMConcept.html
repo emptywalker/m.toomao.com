@@ -49,5 +49,12 @@
             <img class="lazy" data-src="../../Images/Concept/concept-8.png" style="width: 100%">
         </div>
     </div>
+    <script>
+        document.body.onload = function () {
+            var screenWidth = window.screen.availWidth;
+            var kindWidth = screenWidth - 70;
+            document.querySelector('#kind').style.width = kindWidth + 'px';
+        }
+    </script>
 </body>
 </html>
