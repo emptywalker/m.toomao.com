@@ -21,6 +21,7 @@ window.onload = function myFund() {
 
     var page = 0;
     var topArray = [];
+    var results = [];
         //请求数据
     ajax({
         url: path,
@@ -28,12 +29,13 @@ window.onload = function myFund() {
             // console.log(responseText);
             var newsModel = JSON.parse(responseText);
             topArray = newsModel['top'];
-            var results = newsModel['results'];
+            results = newsModel['results'];
             var topHtml = '';
             var resultsHtml = '';
             for (var i = 0; i < topArray.length; i ++){
                 var topModel = topArray[i];
                 var timestamp = formatDate(topModel.lastUpdated);
+                console.log(topModel.author, topModel.from)
                 var html = "<li style='width:"+ screenWidth +"px'><img class='topImage' style='width:"+ screenWidth +"px; background-image:url(" + topModel.cover +");  background-size:cover; background-position: center center;'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
                 topHtml += html;
             }
@@ -55,6 +57,7 @@ window.onload = function myFund() {
             console.log(topUL.clientHeight , topUL.offsetHeight);
 
             animationLoop();
+            addListClickEvent();
 
         },
         fail: function (status) {
@@ -141,4 +144,29 @@ window.onload = function myFund() {
     //     topUL.style.left = offset+'px';
     //     animationLoop();
     }, false);
+
+    //给资讯添加点击事件
+    function addListClickEvent() {
+        var topLi = document.querySelectorAll('#topUL li');
+        var listLi = document.querySelectorAll('#listUL li');
+        for (var i = 0; i < topLi.length; i ++){
+            var li = topLi[i];
+            li.id = i;
+            li.onclick = function (e) {
+                var model = topArray[this.id];
+                var id = model._id;
+                window.location.href = '../Html/NewsDetail.html?id='+id;
+            }
+        }
+
+        for (var i = 0; i < listLi.length; i ++){
+            var li = listLi[i];
+            li.id = i;
+            li.onclick = function () {
+                var model = results[this.id];
+                var id = model._id;
+                window.location.href = '../Html/NewsDetail.html?id='+id;
+            }
+        }
+    }
 }

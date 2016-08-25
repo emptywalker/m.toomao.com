@@ -1,0 +1,66 @@
+
+/*title*/
+#header label{
+    display: inline-block;
+    width: 100%;
+    /*background: red;*/
+}
+#header .name{
+    margin-top: 10px;
+    font-size: 20px;
+    padding-left: 12px;
+    padding-bottom: 10px;
+}
+
+/*时间作者来源*/
+#header .info{
+    display: inline;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+#header .info label{
+    margin-left: 5px;
+    margin-right: 10px;
+    color: rgba(166, 166, 166, 1.0);
+    font-size: 12px;
+    display: inline;
+}
+
+#header .info img{
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+/*导语*/
+#lead{
+    background: rgba(246,246,246,1.0);
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+#lead .title{
+    color: #B41800;
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+#lead .content{
+    padding-bottom: 5px;
+    line-height: 1.5;
+}
+
+#content{
+    margin-top: 12px;
+}
+
+#content img{
+    max-width: 100%;
+
+}
