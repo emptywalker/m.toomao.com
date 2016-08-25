@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资讯详情</title>
+</head>
+<body>
+    <!--用于定位-->
+    <a class="hideA" href="#hide"></a>
+    <!--navigator-->
+    <div class="navigator">
+        <div id="logo">
+            <img src="../../Images/GlobalImages/logo.png">
+        </div>
+        <div id="kind">
+            <ul id="kindUL">
+                <li>
+                    <a href="../../HomePage/Html/FirstPage.html">首页</a>
+                </li>
+                <li>
+                    <a href="../../TMConcept/Html/TMConcept.html">土冒理念</a>
+                </li>
+                <li>
+                    <a href="../../Partner/Html/Partner.html">成为合伙人</a>
+                </li>
+                <li>
+                    <a href="../../About/Html/About.html">公司简介</a>
+                </li>
+                <li>
+                    <a href="../../BusinessEnter/Html/BusinessEnter.html">商家入驻</a>
+                </li>
+                <li>
+                    <a name="hide" href="../../News/Html/News.html" id="selected">资讯平台</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('readystatechange', function(e) {
+            if (document.readyState === 'interactive') {
+                //调整导航条位置
+                document.querySelector('.hideA').click();
+            }
+        });
+    </script>
+</body>
+</html>

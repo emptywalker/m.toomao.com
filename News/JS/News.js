@@ -34,6 +34,7 @@ window.onload = function myFund() {
             for (var i = 0; i < topArray.length; i ++){
                 var topModel = topArray[i];
                 var timestamp = formatDate(topModel.lastUpdated);
+                console.log(topModel.author, topModel.from)
                 var html = "<li style='width:"+ screenWidth +"px'><img class='topImage' style='width:"+ screenWidth +"px; background-image:url(" + topModel.cover +");  background-size:cover; background-position: center center;'><label style='width:"+ screenWidth +"px' class='name'>" + topModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label><img class='person' src='../../Images/News/author.png'><label class='personLabel'>" + topModel.author +"</label><img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + topModel.from + "</label></div></li>";
                 topHtml += html;
             }
