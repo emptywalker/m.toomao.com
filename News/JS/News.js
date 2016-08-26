@@ -103,7 +103,7 @@ window.onload = function myFund() {
             topUL.style.transitionDuration = '1s';
             topUL.style.transform = "translateX("+scrollOffset+")";
             // topUL.style.left = scrollOffset+'px';
-            console.log(scrollOffset +'----page----'+page + '     ------        ' + topUL.offsetLeft);
+            // console.log(scrollOffset +'----page----'+page + '     ------        ' + topUL.offsetLeft);
 
         }, 3000);
     }
@@ -118,7 +118,7 @@ window.onload = function myFund() {
     //     //获取起始点的位置
     //     startX = touch.clientX;
     //     startY = touch.clientY;
-        console.log('---------stsar----------------')
+    //     console.log('---------stsar----------------')
     //
     }, false);
     //
@@ -132,8 +132,8 @@ window.onload = function myFund() {
     //     // topUL.style.transform = "translateX("+offsetScroll+"px)";
     //
     //     topUL.style.left = offsetScroll  + 'px';
-        topUL.style.left = topLetf+'px';
-        console.log(topLetf+'---------moving----------------')
+    //     topUL.style.left = topLetf+'px';
+        // console.log(topLetf+'---------moving----------------')
     }, false);
     //
     topUL.addEventListener('touchend', function (e) {
@@ -172,7 +172,7 @@ window.onload = function myFund() {
     //     topUL.style.left = offset+'px';
     //     animationLoop();
         topUL.style.left = topLetf+'px';
-        console.log(topUL.offsetLeft+'---------end----------------')
+        // console.log(topUL.offsetLeft+'---------end----------------')
     }, false);
 
     //给资讯添加点击事件

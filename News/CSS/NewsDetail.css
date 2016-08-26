@@ -7,7 +7,7 @@
 }
 #header .name{
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 16px;
     padding-left: 12px;
     padding-bottom: 10px;
 }
@@ -28,8 +28,8 @@
 }
 
 #header .info img{
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     vertical-align: middle;
 }
 
@@ -47,7 +47,7 @@
 
 #lead .title{
     color: #B41800;
-    font-size: 18px;
+    font-size: 16px;
     padding-bottom: 5px;
     padding-top: 5px;
 }
@@ -55,13 +55,15 @@
 #lead .content{
     padding-bottom: 5px;
     line-height: 1.5;
+    font-size: 15px;
 }
 
 #content{
     margin-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 #content img{
     max-width: 100%;
-
 }
