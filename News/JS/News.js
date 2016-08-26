@@ -37,6 +37,7 @@ window.onload = function myFund() {
             results = newsModel['results'];
             var topHtml = '';
             var resultsHtml = '';
+            var nameLabelWidth = screenWidth - 102;
             for (var i = 0; i < topArray.length; i ++){
                 var topModel = topArray[i];
                 var timestamp = formatDate(topModel.lastUpdated);
@@ -67,7 +68,7 @@ window.onload = function myFund() {
                     from = "<img class='source' src='../../Images/News/source.png'><label class='sourceLabel'>" + resultModel.from + "</label>";
                 }
 
-                var html = "<li><img class='topImage' style='background-image:url(" + resultModel.cover +");  background-size:cover; background-position: center center;'><label class='name'>" + resultModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label>"+author+from+"</div></li>";
+                var html = "<li><img class='topImage' style='background-image:url(" + resultModel.cover +");  background-size:cover; background-position: center center;'><label class='name' style='width: "+nameLabelWidth+"px'>" + resultModel.title + "</label><div class='info'><img class='time' src='../../Images/News/time.png'><label class='timeLable'>" + timestamp + "</label>"+author+from+"</div></li>";
                 resultsHtml += html;
             }
 
