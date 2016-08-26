@@ -50,7 +50,7 @@ body{
     position: absolute;
     top:0;
     left: 0;
-    width: 520px;
+    width: 490px;
 }
 
 #kindUL li{
@@ -62,7 +62,7 @@ body{
 li a{
     display: inline-block;
     margin-left: 15px;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration:none;
     color: #1a1a1a;
     outline: none;
