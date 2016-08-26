@@ -59,6 +59,7 @@
             <!--<div id="inputDiv">-->
                 <!--<img class="lazy" data-src="../../Images/Partner/partner-9.png" style="width: 100%">-->
                 <!--申请成为合伙人输入表-->
+
                 <!--<form action="https://dev-common.toomao.com/empty" data-role="formJSON" method="PUT" style="margin: 50px;" novalidate>-->
                     <!--姓名<input type="text" name="name" placeholder="请输入姓名" data-role="formValidator" required>-->
                     <!--<br>-->
@@ -72,18 +73,14 @@
             <!--</div>-->
 
             <img class="lazy" data-src="../../Images/GlobalImages/webBottom.png" style="width: 100%;">
+
         </div>
     </div>
-    <style>
 
-        .formValidator-invalid {
-            border: solid 5px #f00;
-        }
-
-    </style>
     <script src='//common.toomao.com/js?p=formJSON,formValidator,lazyload,toast'></script>
     <script>
-        //输入信息判断
+
+        //关闭合伙人申请功能
 //        document.querySelector('form').addEventListener('submit', function (e) {
 //            var inputs = document.querySelectorAll('[data-role=formValidator]');
 //            for (var i = 0; i < inputs.length; i ++){
@@ -104,6 +101,7 @@
 //                    return;
 //                }
 //
+
 //            }
 //        });
 
@@ -112,7 +110,8 @@
             var screenWidth = window.screen.availWidth;
             var kindWidth = screenWidth - 70;
             document.querySelector('#kind').style.width = kindWidth + 'px';
-            //提交申请表信息
+
+            //关闭合伙人申请功能
 //            document.querySelector('form').onended = function (d) {
 //                console.log(d)
 //            }
