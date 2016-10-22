@@ -3,7 +3,7 @@
  */
 
 
-var URLBase = 'https://api.toomao.com';//'https://dev-api.toomao.com';//
+var URLBase = 'https://api.toomao.com';//'https://dev-api2.toomao.com';//
 
 
 //发送网络请求

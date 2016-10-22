@@ -21,7 +21,7 @@ window.onload = function () {
             var infoModel = JSON.parse(responseText);
             topImage.src = infoModel.cover;
             name.textContent = infoModel.title;
-            var timestamp = formatDate(infoModel.lastUpdated);
+            var timestamp = formatDate(infoModel.dateCreated);
             //如果作者或者来源  有就显示  没有就不显示
             var author = '';
             var from = '';

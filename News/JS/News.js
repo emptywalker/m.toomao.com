@@ -57,7 +57,7 @@ window.onload = function myFund() {
 
             for (var  i = 0; i < results.length; i ++){
                 var resultModel = results[i];
-                var timestamp = formatDate(resultModel.lastUpdated);
+                var timestamp = formatDate(resultModel.dateCreated);
                 //如果作者或者来源  有就显示  没有就不显示
                 var author = '';
                 var from = '';
